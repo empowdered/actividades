@@ -5,25 +5,25 @@ error_reporting(1);
 
 if($_GET["anoSiguiente"]!="" && (isset($_GET["anoSiguiente"])) && $_GET["mes"]!=""){//aca cortamos los años con "/"
 	
-	$fecha = split("/", sumarAno($_GET["anoSiguiente"],$_GET["mes"]));
+	$fecha = explode("/", sumarAno($_GET["anoSiguiente"],$_GET["mes"]));
 	header("Location: actividades.php?ano=$fecha[0]&mes=$fecha[1]");
 	
 }
 else if($_GET["anoAnterior"]!="" || (isset($_GET["anoAnterior"]))&& $_GET["mes"]!=""){
 	
-	$fecha = split("/", restarAno($_GET["anoAnterior"],$_GET["mes"]));
+	$fecha = explode("/", restarAno($_GET["anoAnterior"],$_GET["mes"]));
 	header("Location: actividades.php?ano=$fecha[0]&mes=$fecha[1]");
 	//echo $fecha[0]."<br>".$fecha[1];
 }
 else if($_GET["mesSiguiente"]!="" || (isset($_GET["mesSiguiente"])) && $_GET["ano"]!=""){ //aca cortamos los meses siguientes con "-"
 	
-	$fecha = split("-", sumarMes($_GET["mesSiguiente"],$_GET["ano"]));
+	$fecha = explode("-", sumarMes($_GET["mesSiguiente"],$_GET["ano"]));
 	header("Location: actividades.php?ano=$fecha[1]&mes=$fecha[0]");
 
 }
 else if($_GET["mesAnterior"]!="" || (isset($_GET["mesAnterior"]))&&  $_GET["ano"]!=""){
 	
-	$fecha = split("-", restarMes($_GET["mesAnterior"],$_GET["ano"]));
+	$fecha = explode("-", restarMes($_GET["mesAnterior"],$_GET["ano"]));
 	header("Location: actividades.php?ano=$fecha[1]&mes=$fecha[0]");
 	
 }
